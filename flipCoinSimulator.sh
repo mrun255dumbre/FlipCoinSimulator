@@ -11,17 +11,27 @@ fi
 
 headCnt=0;
 tailCnt=0;
-read -p "number of flips" n
-for (( i=1; i<=$n; i++ ))
+
+cnt=1;
+while [[ $cnt != 1000 && $headCnt != 21 && $tailCnt != 21 ]]
 do
         flip=$((RANDOM%2))
-        if [ $flip -eq 1 ]
+        if [[ $flip -eq 1 ]]
         then
                 headCnt=$(($headCnt + 1))
         else
                 tailCnt=$(($tailCnt + 1))
         fi
+
+        if [[ $headCnt -eq 21 ]]
+        then
+                echo "head is 21"
+        else
+                echo "tail count is" $tailCnt "head cnt is" $headCnt
+        fi
+        ((cnt++))
 done
+
 
 if [[ $headCnt -gt $tailCnt ]]
 then
