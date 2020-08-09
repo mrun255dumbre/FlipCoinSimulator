@@ -53,7 +53,15 @@ else
                 else
                         tailCnt=$(($tailCnt + 1))
                 fi
+		((c++))
         done
         diff=$(($headCnt-$tailCnt))
-        ((c++))
+        if [[ $headCnt -gt $tailCnt ]]
+        then
+                wonBy=$(($headCnt-$tailCnt))
+                echo "Head is won by " $wonBy
+        else
+                echo "Tail is won"
+        fi
+
 fi
