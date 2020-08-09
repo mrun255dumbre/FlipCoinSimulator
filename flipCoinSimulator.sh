@@ -54,8 +54,9 @@ else
                         tailCnt=$(($tailCnt + 1))
                 fi
 		((c++))
+		diff=$(($headCnt-$tailCnt))
         done
-        diff=$(($headCnt-$tailCnt))
+
         if [[ $headCnt -gt $tailCnt ]]
         then
                 wonBy=$(($headCnt-$tailCnt))
