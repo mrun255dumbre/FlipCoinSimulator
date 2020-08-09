@@ -43,4 +43,17 @@ then
         echo "Tail is won by " $wonBy
 else
         echo "Tie"
+	c=0;
+	while [[ $c != 200 && $diff != 2  ]]
+        do
+                flip=$((RANDOM%2))
+                if [[ $flip -eq 1 ]]
+                then
+                        headCnt=$(($headCnt + 1))
+                else
+                        tailCnt=$(($tailCnt + 1))
+                fi
+        done
+        diff=$(($headCnt-$tailCnt))
+        ((c++))
 fi
